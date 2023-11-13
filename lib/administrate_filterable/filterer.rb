@@ -13,10 +13,9 @@ module AdministrateFilterable
         # It would be better to implement this as a separate controller action, but I don't have time to explore that right now
         define_method(:scoped_resource) do
           # TODO: Figure out a better way to pass the filter data to the form
-          # This is a hack to get the filter resource and attributes to show up in the form, but it's not ideal
+          # This is a hack to get the filter attributes to show up in the form, but it's not ideal
           # So I tried to make the variable name as unique as possible to avoid collisions
-          @administrate_filterable_resource = resource_name.to_s.titleize.constantize.new
-          @administrate_filterable_attributes = FiltererService.filter_attributes(dashboard, @administrate_filterable_resource)
+          @administrate_filterable_attributes = FiltererService.filter_attributes(dashboard, new_resource)
 
           data = resource_class.all
 

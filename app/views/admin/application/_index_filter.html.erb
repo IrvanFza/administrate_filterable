@@ -13,7 +13,7 @@
       <h2>Filter <%= resource_title %></h2>
     </header>
 
-    <%= form_with(model: [:admin, @administrate_filterable_resource], method: :get, html: { class: "form administrate-filterable__form" }) do |f| %>
+    <%= form_with(model: [:admin, new_resource], method: :get, html: { class: "form administrate-filterable__form" }) do |f| %>
       <% @administrate_filterable_attributes.each do |attribute| -%>
         <% # TODO: Add capability to customize the filter behavior (e.g. search by exact match, search by partial match, etc just like in the ActiveAdmin filter) %>
         <div class="field-unit field-unit--<%= attribute.html_class %> administrate-filterable__field">
