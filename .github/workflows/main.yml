@@ -1,0 +1,20 @@
+---
+name: CI
+on: [push,pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: ls /opt/hostedtoolcache/Ruby
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: 3.2.2
+
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec rspec

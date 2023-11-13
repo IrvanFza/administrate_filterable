@@ -1,0 +1,92 @@
+.administrate-filterable__toggle-button {
+  position: fixed;
+  z-index: 4;
+  top: 38px;
+  right: 10px;
+}
+
+.administrate-filterable__overlay {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1C1D21;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s;
+}
+
+.administrate-filterable__open .administrate-filterable__overlay {
+  opacity: .6;
+  visibility: visible;
+}
+
+.administrate-filterable__container {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 90%;
+  max-width: 460px;
+  padding: 2em 3.5em;
+  background: #F3F3F3;
+  overflow: auto;
+  transform: translateZ(0);
+  transform: translateX(100%);
+  transition: transform .5s cubic-bezier(.07,.23,.34,1);
+}
+
+.administrate-filterable__open .administrate-filterable__container {
+  transform: translateX(0);
+}
+
+.administrate-filterable__container h2 {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #AAAAAA;
+  margin: 1.5em 0;
+}
+
+@keyframes slide-in {
+  0% {
+      opacity: 0;
+      transform: translateX(80px);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+.administrate-filterable__form .field-unit {
+  display: block;
+}
+
+.administrate-filterable__form .field-unit__label {
+  width: 100%;
+  margin-left: 0;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.administrate-filterable__form .field-unit__field {
+  margin-left: 0;
+}
+
+.administrate-filterable__form .form-actions {
+  margin-left: 0;
+  text-align: center;
+}
+
+.administrate-filterable__form .administrate-filterable__clear-filter {
+  background: #888888;
+}
+
+.administrate-filterable__form .administrate-filterable__clear-filter:hover {
+  background: #666666;
+}
