@@ -1,5 +1,5 @@
 <% if @administrate_filterable_attributes.present? %>
-  <% resource_title = display_resource_name(page.resource_name) %>
+  <% resource_title = display_resource_name(resource_name) %>
 
   <% # TODO: Improve the toggle button user experience (e.g. add open/close animation, add dynamic open/close title, etc) %>
   <a href="#administrate-filterable" class="administrate-filterable__toggle-button" title="Filter <%= resource_title %>">
