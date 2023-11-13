@@ -1,7 +1,7 @@
-# Administrate Custom Filter
-
 ![Gem](https://img.shields.io/gem/v/administrate_filterable.svg)
 ![CI](https://github.com/IrvanFza/administrate_filterable/workflows/CI/badge.svg)
+
+# Administrate Custom Filter
 
 An [Administrate](https://github.com/thoughtbot/administrate/) plugin to add a custom filter to your index page. The filter will be rendered as an off-canvas component, so it won't take up too much space on your index page. Highly inspired by [ActiveAdmin](https://github.com/activeadmin/activeadmin)'s filter.
 
