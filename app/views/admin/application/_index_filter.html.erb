@@ -1,7 +1,4 @@
-<% resource_new = resource_class.new %>
-<% filter_attributes = AdministrateFilterable::FiltererService.filter_attributes(@dashboard, resource_new) %>
-
-<% if @is_filterable && filter_attributes.present? %>
+<% if @filterable_attributes.present? %>
   <% resource_title = display_resource_name(resource_name) %>
 
   <% # TODO: Improve the toggle button user experience (e.g. add open/close animation, add dynamic open/close title, etc) %>
@@ -16,8 +13,8 @@
       <h2>Filter <%= resource_title %></h2>
     </header>
 
-    <%= form_with(model: [:admin, resource_new], method: :get, html: { class: "form administrate-filterable__form" }) do |f| %>
-      <% filter_attributes.each do |attribute| -%>
+    <%= form_with(model: [:admin, new_resource], method: :get, html: { class: "form administrate-filterable__form" }) do |f| %>
+      <% @filterable_attributes.each do |attribute| -%>
         <% # TODO: Add capability to customize the filter behavior (e.g. search by exact match, search by partial match, etc just like in the ActiveAdmin filter) %>
         <div class="field-unit field-unit--<%= attribute.html_class %> administrate-filterable__field">
           <%= render_field attribute, f: f %>

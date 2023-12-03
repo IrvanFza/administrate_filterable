@@ -21,7 +21,7 @@ module AdministrateFilterable
     end
 
     def filtered_resources(resources)
-      @is_filterable = true
+      @filterable_attributes = AdministrateFilterable::FiltererService.filter_attributes(dashboard, new_resource)
 
       filter_params = params[resource_name]
       return resources if filter_params.blank?
