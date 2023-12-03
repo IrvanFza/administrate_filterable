@@ -1,7 +1,7 @@
 <% resource_new = resource_class.new %>
 <% filter_attributes = AdministrateFilterable::FiltererService.filter_attributes(@dashboard, resource_new) %>
 
-<% if filter_attributes.present? %>
+<% if @is_filterable && filter_attributes.present? %>
   <% resource_title = display_resource_name(resource_name) %>
 
   <% # TODO: Improve the toggle button user experience (e.g. add open/close animation, add dynamic open/close title, etc) %>

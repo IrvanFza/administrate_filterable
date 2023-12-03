@@ -108,6 +108,24 @@ Example (`app/views/admin/users/_search.html.erb`):
 <%= render 'index_filter' %>
 ```
 
+### Overridden `scoped_resource` method
+This gem utilizes the `scoped_resource` method to filter the resources by overriding its default behavior. If you by any chance also override this method in your application controller, you will also override the filter functionality and it won't work.
+
+To fix this, you need to add the following code in the last line of your overridden `scoped_resource` method:
+```ruby
+filtered_resources(your_scoped_resource)
+```
+
+For example:
+```ruby
+def scoped_resource
+  # Your custom filter logic here
+  resources = super.where(status: 'active')
+  # Add this line to make the filter work
+  filtered_resources(resources)
+end
+```
+
 ### Filter button not showing
 Since I use the `_search.html.erb` partial to add the filter button, it may not be showing if you turn all the searchable attributes to false in the model dashboard. So make sure you have at least one searchable attribute to make the filter button show up.
 
