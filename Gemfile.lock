@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    administrate_filterable (0.0.2)
+    administrate_filterable (0.0.3)
       actionview (>= 5.2.2.1)
       administrate (>= 0.17.0)
       rails (>= 4.2)

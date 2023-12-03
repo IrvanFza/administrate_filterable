@@ -12,11 +12,6 @@ module AdministrateFilterable
         # This is a hack to implement the filter functionality by overriding the scoped_resource method
         # It would be better to implement this as a separate controller action, but I don't have time to explore that right now
         define_method(:scoped_resource) do
-          # TODO: Figure out a better way to pass the filter data to the form
-          # This is a hack to get the filter attributes to show up in the form, but it's not ideal
-          # So I tried to make the variable name as unique as possible to avoid collisions
-          @administrate_filterable_attributes = FiltererService.filter_attributes(dashboard, new_resource)
-
           data = resource_class.all
 
           filter_params = params[resource_name]
